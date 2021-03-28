@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Avengers</title>
+</head>
+<body>
+
+<h1>Welcome to the Avengers Database</h1>
+<div th:if="${avengerList.empty}">
+   <h2>
+       Add an Avenger to begin
+   </h2>
+
+</div>
+
+<div th:unless="${avengerList.empty}"  >
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Power Source</th>
+        </tr>
+        <tr th:each=" avenger : ${avengerList}">
+            <td th:text="${avenger.name}">Thor</td>
+            <td th:text="${avenger.age}">150</td>
+            <td th:text="${avenger.powerSource}">Deity</td>
+        </tr>
+    </table>
+</div>
+<p><a href="/addPage">Add an Avenger</a></p>
+
+</body>
+</html>
